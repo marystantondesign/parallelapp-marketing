@@ -1,26 +1,15 @@
 import Link from "next/link";
 import styles from "./Nav.module.css";
 
-const LINKS = ["Overview", "Network", "Labs", "Research", "Safety", "Company"];
-
-export default function Nav({ variant = "default" }: { variant?: "default" | "hero" }) {
-  const isHero = variant === "hero";
+export default function Nav() {
   return (
-    <header className={`${styles.nav} ${isHero ? styles.navHero : ""}`}>
-      {isHero ? (
-        <p className={styles.wordmarkHero}>Parallel</p>
-      ) : (
-        <div className={styles.logoLockup}>
-          <div className={styles.mark} data-figma-asset-pending="37:15" />
-          <p className={styles.wordmark}>Parallel</p>
-        </div>
-      )}
+    <header className={styles.nav}>
+      <p className={styles.wordmark}>Parallel</p>
       <nav className={styles.links}>
-        {LINKS.map((label) => (
-          <Link key={label} href={`/${label.toLowerCase()}`} className={styles.link}>
-            {label}
-          </Link>
-        ))}
+        <Link href="/the-app" className={styles.link}>
+          The App
+        </Link>
+        <p className={styles.linkStatic}>Company</p>
         <Link href="/download" className={styles.download}>
           Download
         </Link>

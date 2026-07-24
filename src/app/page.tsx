@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Button from "@/components/Button/Button";
@@ -14,9 +15,9 @@ const THREAD = [
 ];
 
 const DIRECTIONS = [
-  { eyebrow: "SIDEWAYS", title: "Twins", body: "A version of you living right now, in a reality close enough to talk to.", color: "var(--color-brand-relay-blue)" },
-  { eyebrow: "ELSEWHERE", title: "Dreams", body: "The parallels where no version of you exists. You have been visiting them your whole life.", color: "var(--color-brand-violet)" },
-  { eyebrow: "BACKWARDs", title: "Echoes", body: "Your own line, further back. Reached by trance rather than by relay.", color: "var(--color-brand-gold)" },
+  { eyebrow: "SIDEWAYS", title: "Twins", body: "A version of you living right now, in a reality close enough to talk to.", color: "var(--color-brand-relay-blue)", href: "/twins" },
+  { eyebrow: "ELSEWHERE", title: "Dreams", body: "The parallels where no version of you exists. You have been visiting them your whole life.", color: "var(--color-brand-violet)", href: "/dreams" },
+  { eyebrow: "BACKWARDs", title: "Echoes", body: "Your own line, further back. Reached by trance rather than by relay.", color: "var(--color-brand-gold)", href: "/echoes" },
 ];
 
 const APP_SECTIONS = [
@@ -26,6 +27,7 @@ const APP_SECTIONS = [
     tag: "INCLUDED",
     tagColor: "var(--color-text-muted)",
     iconColor: "var(--color-brand-relay-blue)",
+    href: "/twins",
   },
   {
     title: "Dreams",
@@ -33,6 +35,7 @@ const APP_SECTIONS = [
     tag: "INCLUDED",
     tagColor: "var(--color-text-muted)",
     iconColor: "rgba(120,97,255,0.84)",
+    href: "/dreams",
   },
   {
     title: "Echoes",
@@ -40,6 +43,7 @@ const APP_SECTIONS = [
     tag: "BETA",
     tagColor: "var(--color-signal-degraded)",
     iconColor: "var(--color-brand-gold)",
+    href: "/echoes",
   },
 ];
 
@@ -58,7 +62,7 @@ const PAPERS = [
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Nav variant="hero" />
+      <Nav />
       <Ticker />
 
       <section className={styles.hero}>
@@ -117,11 +121,16 @@ export default function Home() {
         </p>
         <div className={styles.directions}>
           {DIRECTIONS.map((d) => (
-            <div key={d.title} className={styles.direction} style={{ "--direction-color": d.color } as React.CSSProperties}>
+            <Link
+              key={d.title}
+              href={d.href}
+              className={styles.direction}
+              style={{ "--direction-color": d.color } as React.CSSProperties}
+            >
               <p className={styles.directionEyebrow}>{d.eyebrow}</p>
               <p className={styles.directionTitle}>{d.title}</p>
               <p className={styles.directionBody}>{d.body}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -147,7 +156,7 @@ export default function Home() {
           </div>
           <div className={styles.appSections}>
             {APP_SECTIONS.map((section) => (
-              <div key={section.title} className={styles.sectionRow}>
+              <Link key={section.title} href={section.href} className={styles.sectionRow}>
                 <div className={styles.sectionRowIcon} style={{ background: section.iconColor }} />
                 <div className={styles.sectionRowCopy}>
                   <p className={styles.sectionRowTitle}>{section.title}</p>
@@ -156,7 +165,7 @@ export default function Home() {
                 <span className={styles.sectionRowTag} style={{ color: section.tagColor }}>
                   {section.tag}
                 </span>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

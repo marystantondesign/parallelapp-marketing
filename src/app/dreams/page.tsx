@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Ticker from "@/components/Ticker/Ticker";
@@ -52,9 +53,9 @@ const IS_NOT_LIST = [
 ];
 
 const RELATED = [
-  { title: "Dreams", body: "Return to a dream you have already had." },
-  { title: "Twins", body: "Text, voice, and video with verified versions of yourself." },
-  { title: "Echoes", body: "Guided sessions into earlier recollection." },
+  { title: "Dreams", body: "Return to a dream you have already had.", href: "/dreams" },
+  { title: "Twins", body: "Text, voice, and video with verified versions of yourself.", href: "/twins" },
+  { title: "Echoes", body: "Guided sessions into earlier recollection.", href: "/echoes" },
 ];
 
 export default function Dreams() {
@@ -198,10 +199,10 @@ export default function Dreams() {
         <h2 className={styles.relatedHeading}>Also inside Parallel</h2>
         <div className={styles.relatedRow}>
           {RELATED.map((card, i) => (
-            <div key={i} className={styles.relatedCard}>
+            <Link key={i} href={card.href} className={styles.relatedCard}>
               <p className={styles.relatedTitle}>{card.title}</p>
               <p className={styles.relatedBody}>{card.body}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

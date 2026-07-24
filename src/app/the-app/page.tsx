@@ -36,7 +36,7 @@ const COMPARE_ROWS = [
   { section: "Echoes", reaches: "Your line, further back", method: "Induction", availability: "Beta" },
 ];
 
-export default function Overview() {
+export default function TheApp() {
   return (
     <div className={styles.page}>
       <Nav />

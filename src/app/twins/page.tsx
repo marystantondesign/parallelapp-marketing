@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Ticker from "@/components/Ticker/Ticker";
@@ -53,9 +54,9 @@ const STEPS = [
 ];
 
 const RELATED = [
-  { title: "Dreams", body: "Record what you remember, in your own words." },
-  { title: "Dreams", body: "Return to a dream you have already had." },
-  { title: "Echoes", body: "Guided sessions into earlier recollection." },
+  { title: "Dreams", body: "Record what you remember, in your own words.", href: "/dreams" },
+  { title: "Dreams", body: "Return to a dream you have already had.", href: "/dreams" },
+  { title: "Echoes", body: "Guided sessions into earlier recollection.", href: "/echoes" },
 ];
 
 export default function Twins() {
@@ -195,10 +196,10 @@ export default function Twins() {
         <h2 className={styles.relatedHeading}>Also inside Parallel</h2>
         <div className={styles.relatedRow}>
           {RELATED.map((card, i) => (
-            <div key={i} className={styles.relatedCard}>
+            <Link key={i} href={card.href} className={styles.relatedCard}>
               <p className={styles.relatedTitle}>{card.title}</p>
               <p className={styles.relatedBody}>{card.body}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
