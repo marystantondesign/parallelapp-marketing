@@ -6,23 +6,6 @@
   background: var(--color-bg-canvas);
 }
 
-/* Ticker */
-.ticker {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px 120px;
-  background: var(--color-bg-inverse);
-  color: var(--color-text-inverse);
-  font-family: var(--text-mono-body-font-family);
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.96px;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
 /* Hero */
 .hero {
   display: flex;

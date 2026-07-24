@@ -1,16 +1,8 @@
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Button from "@/components/Button/Button";
+import Ticker from "@/components/Ticker/Ticker";
 import styles from "./page.module.css";
-
-const TICKER = [
-  "2,140 RELAYS ACTIVE",
-  "GEN 3",
-  "COVERAGE 6.4%",
-  "MEDIAN LATENCY 180MS",
-  "NETWORK OPERATIONAL",
-  "ESTD 2026",
-];
 
 const THREAD = [
   { from: "them" as const, text: "did you ever get that molar looked at" },
@@ -66,13 +58,8 @@ const PAPERS = [
 export default function Home() {
   return (
     <div className={styles.page}>
-      <Nav />
-
-      <div className={styles.ticker}>
-        {TICKER.map((item) => (
-          <span key={item}>{item}</span>
-        ))}
-      </div>
+      <Nav variant="hero" />
+      <Ticker />
 
       <section className={styles.hero}>
         <p className={styles.heroWordmark}>Parallel</p>
