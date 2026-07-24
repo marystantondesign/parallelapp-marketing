@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Ticker from "@/components/Ticker/Ticker";
@@ -11,6 +12,7 @@ const SECTIONS = [
     diagram: "Diagram / Relay array — pending asset",
     diagramId: "39:49",
     beta: false,
+    href: "/twins",
   },
   {
     title: "Dreams",
@@ -19,6 +21,7 @@ const SECTIONS = [
     diagram: "Diagram / Field lines — pending asset",
     diagramId: "39:33",
     beta: false,
+    href: "/dreams",
   },
   {
     title: "Echoes",
@@ -27,6 +30,7 @@ const SECTIONS = [
     diagram: "Diagram / Orbital paths — pending asset",
     diagramId: "39:62",
     beta: true,
+    href: "/echoes",
   },
 ];
 
@@ -59,7 +63,7 @@ export default function TheApp() {
       <section className={styles.sections}>
         <div className={styles.sectionsRow}>
           {SECTIONS.map((section) => (
-            <div key={section.title} className={styles.sectionCard}>
+            <Link key={section.title} href={section.href} className={styles.sectionCard}>
               <div className={styles.sectionVisual} data-figma-asset-pending={section.diagramId}>
                 {section.diagram}
               </div>
@@ -73,7 +77,7 @@ export default function TheApp() {
                   Learn more
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
