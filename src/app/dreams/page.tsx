@@ -1,9 +1,14 @@
-import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Ticker from "@/components/Ticker/Ticker";
 import Button from "@/components/Button/Button";
 import styles from "./page.module.css";
+
+const SAFETY_ROW = [
+  { label: "· TWINS", body: "Sessions end automatically after 40 minutes. Consecutive sessions require a rest interval.", highlight: false },
+  { label: "· Dreams", body: "Every match is confirmed against your own biometric signature before a channel opens.", highlight: true },
+  { label: "· Echoes", body: "Licensed counselors are available in-app for anyone who wants to stop.", highlight: false },
+];
 
 const FEATURES = [
   {
@@ -52,10 +57,11 @@ const IS_NOT_LIST = [
   "Something to do while driving or in company",
 ];
 
-const RELATED = [
-  { title: "Dreams", body: "Return to a dream you have already had.", href: "/dreams" },
-  { title: "Twins", body: "Text, voice, and video with verified versions of yourself.", href: "/twins" },
-  { title: "Echoes", body: "Guided sessions into earlier recollection.", href: "/echoes" },
+const REQUIREMENTS = [
+  { number: "01", title: "A quiet, private space" },
+  { number: "02", title: "Lights off or dimmed" },
+  { number: "03", title: "Lying down comfortably" },
+  { number: "04", title: "Phone camera facing you" },
 ];
 
 export default function Dreams() {
@@ -65,21 +71,26 @@ export default function Dreams() {
       <Ticker />
 
       <section className={styles.hero}>
+        <div className={styles.safetyRow}>
+          {SAFETY_ROW.map((card) => (
+            <div key={card.label} className={`${styles.safetyCard} ${card.highlight ? styles.safetyCardHighlight : ""}`}>
+              <p className={styles.safetyCardLabel}>{card.label}</p>
+              <p className={styles.safetyCardBody}>{card.body}</p>
+            </div>
+          ))}
+        </div>
         <div className={styles.heroRow}>
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>PARALLEL · DREAMS</p>
-            <h1 className={styles.heroHeadline}>Write it down before it goes.</h1>
+            <h1 className={styles.heroHeadline}>Where do we go?</h1>
             <p className={styles.heroBody}>
               Most of a dream is gone within five minutes of waking. Dreams is built for those five minutes, and it
               keeps what you wrote so you can go back to it later.
             </p>
             <div className={styles.ctas}>
-              <Button variant="primary" style={{ background: "var(--color-signal-degraded)", color: "var(--color-text-primary)" }}>
-                Download Dreams
-              </Button>
               <Button
                 variant="secondary"
-                style={{ color: "var(--color-accent-default)", borderColor: "var(--color-accent-default)", borderWidth: "1.5px" }}
+                style={{ color: "var(--color-brand-cyan)", borderColor: "var(--color-brand-cyan)", borderWidth: "1.5px" }}
               >
                 See how it works
               </Button>
@@ -149,16 +160,6 @@ export default function Dreams() {
         </div>
       </section>
 
-      <div className={styles.requirementsWrap}>
-        <div className={styles.requirements}>
-          <p className={styles.requirementsEyebrow}>REQUIREMENTS</p>
-          <p className={styles.requirementsBody}>
-            iOS 18 or later, Android 15 or later. No relay coverage required. Dreams works fully offline and never
-            needs an account.
-          </p>
-        </div>
-      </div>
-
       <section className={styles.revisit}>
         <p className={styles.revisitEyebrow}>REVISIT</p>
         <h2 className={styles.revisitHeadline}>Not lucid dreaming.</h2>
@@ -195,15 +196,38 @@ export default function Dreams() {
         </p>
       </section>
 
-      <section className={styles.related}>
-        <h2 className={styles.relatedHeading}>Also inside Parallel</h2>
-        <div className={styles.relatedRow}>
-          {RELATED.map((card, i) => (
-            <Link key={i} href={card.href} className={styles.relatedCard}>
-              <p className={styles.relatedTitle}>{card.title}</p>
-              <p className={styles.relatedBody}>{card.body}</p>
-            </Link>
+      <section className={styles.preparation}>
+        <p className={styles.preparationEyebrow}>PREPARATION</p>
+        <h2 className={styles.preparationHeadline}>Before a session.</h2>
+        <p className={styles.preparationBody}>
+          Settle into a comfortable position. Allow the room to remain dark and quiet. The camera flash and tones
+          will guide you into a meditative state.
+        </p>
+        <div className={styles.requirementsGrid}>
+          {REQUIREMENTS.map((req) => (
+            <div key={req.number} className={styles.requirementCard}>
+              <p className={styles.requirementNumber}>{req.number}</p>
+              <p className={styles.requirementTitle}>{req.title}</p>
+            </div>
           ))}
+        </div>
+      </section>
+
+      <section className={styles.safety}>
+        <div className={styles.safetyNotice}>
+          <p className={styles.safetyNoticeLabel}>SAFETY</p>
+          <p className={styles.safetyNoticeBody}>
+            Parallel is not therapy and is not a substitute for it. A small number of participants report distress in
+            the days after a session. If that happens, stop, and contact the clinical line in the app. We will not
+            ask you to continue.
+          </p>
+        </div>
+        <div className={styles.warning}>
+          <p className={styles.warningLabel}>PHOTOSENSITIVITY</p>
+          <p className={styles.warningBody}>
+            This experience uses camera flash and tonal frequencies. Do not use Echoes if you have photosensitivity
+            or are prone to seizures.
+          </p>
         </div>
       </section>
 
