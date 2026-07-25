@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Ticker from "@/components/Ticker/Ticker";
@@ -5,9 +6,9 @@ import Button from "@/components/Button/Button";
 import styles from "./page.module.css";
 
 const SAFETY_ROW = [
-  { label: "· TWINS", body: "Sessions end automatically after 40 minutes. Consecutive sessions require a rest interval.", highlight: true },
-  { label: "· Dreams", body: "Every match is confirmed against your own biometric signature before a channel opens.", highlight: false },
-  { label: "· Echoes", body: "Licensed counselors are available in-app for anyone who wants to stop.", highlight: false },
+  { label: "· TWINS", body: "Sessions end automatically after 40 minutes. Consecutive sessions require a rest interval.", highlight: true, href: "/twins" },
+  { label: "· Dreams", body: "Every match is confirmed against your own biometric signature before a channel opens.", highlight: false, href: "/dreams" },
+  { label: "· Echoes", body: "Licensed counselors are available in-app for anyone who wants to stop.", highlight: false, href: "/echoes" },
 ];
 
 const FEATURES = [
@@ -74,10 +75,14 @@ export default function Twins() {
       <section className={styles.hero}>
         <div className={styles.safetyRow}>
           {SAFETY_ROW.map((card) => (
-            <div key={card.label} className={`${styles.safetyCard} ${card.highlight ? styles.safetyCardHighlight : ""}`}>
+            <Link
+              key={card.label}
+              href={card.href}
+              className={`${styles.safetyCard} ${card.highlight ? styles.safetyCardHighlight : ""}`}
+            >
               <p className={styles.safetyCardLabel}>{card.label}</p>
               <p className={styles.safetyCardBody}>{card.body}</p>
-            </div>
+            </Link>
           ))}
         </div>
         <div className={styles.heroRow}>

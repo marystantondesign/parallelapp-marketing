@@ -4,7 +4,9 @@ import styles from "./Nav.module.css";
 export default function Nav() {
   return (
     <header className={styles.nav}>
-      <p className={styles.wordmark}>Parallel</p>
+      <Link href="/" className={styles.wordmark}>
+        Parallel
+      </Link>
       <nav className={styles.links}>
         <Link href="/the-app" className={styles.link}>
           The App

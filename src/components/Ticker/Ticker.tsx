@@ -1,7 +1,6 @@
 import styles from "./Ticker.module.css";
 
 const ITEMS = [
-  "2,140 RELAYS ACTIVE",
   "GEN 3",
   "COVERAGE 6.4%",
   "MEDIAN LATENCY 180MS",

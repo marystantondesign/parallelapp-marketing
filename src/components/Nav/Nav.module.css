@@ -9,12 +9,14 @@
 }
 
 .wordmark {
+  display: block;
   font-family: var(--text-mono-body-font-family);
   font-size: 36px;
   line-height: 18px;
   letter-spacing: 5.4px;
   text-transform: uppercase;
   color: var(--color-brand-gold);
+  text-decoration: none;
   margin: 0;
 }
 
