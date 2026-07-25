@@ -2,7 +2,6 @@ import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Button from "@/components/Button/Button";
-import Ticker from "@/components/Ticker/Ticker";
 import styles from "./page.module.css";
 
 const THREAD = [
@@ -63,7 +62,6 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <Nav />
-      <Ticker />
 
       <section className={styles.hero}>
         <p className={styles.heroWordmark}>Parallel</p>

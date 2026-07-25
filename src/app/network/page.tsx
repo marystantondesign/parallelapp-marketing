@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
-import Ticker from "@/components/Ticker/Ticker";
 import styles from "./page.module.css";
 
 const WHAT_IT_DOES = [
@@ -35,7 +34,6 @@ export default function Network() {
   return (
     <div className={styles.page}>
       <Nav />
-      <Ticker />
 
       <section className={styles.header}>
         <p className={styles.eyebrow}>Technology</p>

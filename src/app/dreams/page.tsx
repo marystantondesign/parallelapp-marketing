@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
-import Ticker from "@/components/Ticker/Ticker";
 import Button from "@/components/Button/Button";
 import styles from "./page.module.css";
 
@@ -69,7 +68,6 @@ export default function Dreams() {
   return (
     <div className={styles.page}>
       <Nav />
-      <Ticker />
 
       <section className={styles.hero}>
         <div className={styles.safetyRow}>

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
-import Ticker from "@/components/Ticker/Ticker";
 import styles from "./page.module.css";
 
 const SECTIONS = [
@@ -44,7 +43,6 @@ export default function TheApp() {
   return (
     <div className={styles.page}>
       <Nav />
-      <Ticker />
 
       <section className={styles.header}>
         <div className={styles.lede}>

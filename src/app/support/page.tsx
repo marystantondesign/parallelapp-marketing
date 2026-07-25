@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
-import Ticker from "@/components/Ticker/Ticker";
 import styles from "./page.module.css";
 
 const SIDEBAR = [
@@ -28,7 +27,6 @@ export default function Support() {
   return (
     <div className={styles.page}>
       <Nav />
-      <Ticker />
 
       <div className={styles.breadcrumb}>
         <span className={styles.breadcrumbLink}>Help center</span>
