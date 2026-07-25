@@ -1,39 +1,37 @@
-import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Ticker from "@/components/Ticker/Ticker";
 import Button from "@/components/Button/Button";
 import styles from "./page.module.css";
 
+const SAFETY_ROW = [
+  { label: "· TWINS", body: "Sessions end automatically after 40 minutes. Consecutive sessions require a rest interval.", highlight: false },
+  { label: "· Dreams", body: "Every match is confirmed against your own biometric signature before a channel opens.", highlight: false },
+  { label: "· Echoes", body: "Licensed counselors are available in-app for anyone who wants to stop.", highlight: true },
+];
+
 const FEATURES = [
   {
     title: "Screening comes first",
     body: "Echoes is in beta and open to select users. Every applicant completes a mental health screening and a consent review with a clinician. Roughly one in four is declined, and we tell you why.",
     diagram: "Diagram / Orbital paths — pending asset",
-    diagramId: "39:62",
+    diagramId: "39:51",
     visualFirst: true,
   },
   {
     title: "Someone is watching the session",
     body: "A trained facilitator monitors each session in real time and can end it. You are alone in the room, but you are not alone in the session.",
     diagram: "Diagram / Field lines — pending asset",
-    diagramId: "39:33",
+    diagramId: "39:20",
     visualFirst: false,
   },
   {
     title: "We do not verify what you find",
     body: "We make no claim that what you see is historically accurate, or that it belongs to you. Sessions are saved to your Echoes Log with an optional Jungian reading, for your reference only.",
     diagram: "Diagram / Wave interference — pending asset",
-    diagramId: "39:82",
+    diagramId: "39:64",
     visualFirst: true,
   },
-];
-
-const ACCESS_STEPS = [
-  { number: "01", title: "Apply", body: "A short form. Age, location, and whether you have used Dreams." },
-  { number: "02", title: "Screening", body: "A clinical questionnaire and a call. Around 40 minutes." },
-  { number: "03", title: "Consent review", body: "You read what we know and what we do not. You can stop here." },
-  { number: "04", title: "First session", body: "Scheduled with a facilitator. Shorter than a standard session." },
 ];
 
 const SPECS = [
@@ -53,12 +51,6 @@ const REQUIREMENTS = [
   { number: "04", title: "Phone camera facing you" },
 ];
 
-const RELATED = [
-  { title: "Dreams", body: "Return to a dream you have already had.", href: "/dreams" },
-  { title: "Twins", body: "Text, voice, and video with verified versions of yourself.", href: "/twins" },
-  { title: "Perspective Exchange", body: "Limited private beta. Access by invitation.", href: "/twins" },
-];
-
 export default function Echoes() {
   return (
     <div className={styles.page}>
@@ -66,24 +58,26 @@ export default function Echoes() {
       <Ticker />
 
       <section className={styles.hero}>
+        <div className={styles.safetyRow}>
+          {SAFETY_ROW.map((card) => (
+            <div key={card.label} className={`${styles.safetyCard} ${card.highlight ? styles.safetyCardHighlight : ""}`}>
+              <p className={styles.safetyCardLabel}>{card.label}</p>
+              <p className={styles.safetyCardBody}>{card.body}</p>
+            </div>
+          ))}
+        </div>
         <div className={styles.heroRow}>
           <div className={styles.heroCopy}>
-            <span className={styles.betaBadge}>PUBLIC BETA</span>
             <p className={styles.eyebrow}>PARALLEL · ECHOES</p>
+            <span className={styles.betaBadge}>PUBLIC BETA</span>
             <h1 className={styles.heroHeadline}>Your own line, further back.</h1>
             <p className={styles.heroBody}>
               A guided trance using camera flash and tonal frequencies. Twins run beside you. Echoes run behind you.
               Nothing is generated and nothing is verified.
             </p>
             <div className={styles.ctas}>
-              <Button variant="primary" style={{ background: "var(--color-signal-degraded)", color: "var(--color-text-primary)" }}>
-                Apply to the beta
-              </Button>
-              <Button
-                variant="secondary"
-                style={{ color: "var(--color-accent-default)", borderColor: "var(--color-accent-default)", borderWidth: "1.5px" }}
-              >
-                Screening criteria
+              <Button variant="primary" style={{ background: "var(--color-brand-cyan)", color: "var(--color-text-primary)" }}>
+                Apply for beta
               </Button>
             </div>
           </div>
@@ -142,19 +136,6 @@ export default function Echoes() {
         ))}
       </section>
 
-      <section className={styles.screening}>
-        <h2 className={styles.screeningHeading}>How access works</h2>
-        <div className={styles.steps}>
-          {ACCESS_STEPS.map((step) => (
-            <div key={step.number} className={styles.step}>
-              <p className={styles.stepNumber}>{step.number}</p>
-              <p className={styles.stepTitle}>{step.title}</p>
-              <p className={styles.stepBody}>{step.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className={styles.specs}>
         <h2 className={styles.specsHeading}>Specifications</h2>
         <div className={styles.specTable}>
@@ -182,35 +163,23 @@ export default function Echoes() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className={styles.safety}>
+        <div className={styles.safetyNotice}>
+          <p className={styles.safetyNoticeLabel}>SAFETY</p>
+          <p className={styles.safetyNoticeBody}>
+            Parallel is not therapy and is not a substitute for it. A small number of participants report distress in
+            the days after a session. If that happens, stop, and contact the clinical line in the app. We will not
+            ask you to continue.
+          </p>
+        </div>
         <div className={styles.warning}>
           <p className={styles.warningLabel}>PHOTOSENSITIVITY</p>
           <p className={styles.warningBody}>
             This experience uses camera flash and tonal frequencies. Do not use Echoes if you have photosensitivity
             or are prone to seizures.
           </p>
-        </div>
-      </section>
-
-      <div className={styles.safetyWrap}>
-        <div className={styles.safetyNotice}>
-          <p className={styles.safetyLabel}>SAFETY</p>
-          <p className={styles.safetyBody}>
-            Echoes is not therapy and is not a substitute for it. A small number of participants report distress in
-            the days after a session. If that happens, stop, and contact the clinical line in the app. We will not
-            ask you to continue.
-          </p>
-        </div>
-      </div>
-
-      <section className={styles.related}>
-        <h2 className={styles.relatedHeading}>Also inside Parallel</h2>
-        <div className={styles.relatedRow}>
-          {RELATED.map((card, i) => (
-            <Link key={i} href={card.href} className={styles.relatedCard}>
-              <p className={styles.relatedTitle}>{card.title}</p>
-              <p className={styles.relatedBody}>{card.body}</p>
-            </Link>
-          ))}
         </div>
       </section>
 
