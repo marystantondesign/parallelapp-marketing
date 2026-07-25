@@ -1,9 +1,14 @@
-import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Ticker from "@/components/Ticker/Ticker";
 import Button from "@/components/Button/Button";
 import styles from "./page.module.css";
+
+const SAFETY_ROW = [
+  { label: "· TWINS", body: "Sessions end automatically after 40 minutes. Consecutive sessions require a rest interval.", highlight: true },
+  { label: "· Dreams", body: "Every match is confirmed against your own biometric signature before a channel opens.", highlight: false },
+  { label: "· Echoes", body: "Licensed counselors are available in-app for anyone who wants to stop.", highlight: false },
+];
 
 const FEATURES = [
   {
@@ -53,10 +58,11 @@ const STEPS = [
   { number: "04", title: "Return", body: "A short reorientation runs on both sides. Sessions are logged to both accounts." },
 ];
 
-const RELATED = [
-  { title: "Dreams", body: "Record what you remember, in your own words.", href: "/dreams" },
-  { title: "Dreams", body: "Return to a dream you have already had.", href: "/dreams" },
-  { title: "Echoes", body: "Guided sessions into earlier recollection.", href: "/echoes" },
+const REQUIREMENTS = [
+  { number: "01", title: "A quiet, private space" },
+  { number: "02", title: "Lights off or dimmed" },
+  { number: "03", title: "Lying down comfortably" },
+  { number: "04", title: "Phone camera facing you" },
 ];
 
 export default function Twins() {
@@ -66,21 +72,26 @@ export default function Twins() {
       <Ticker />
 
       <section className={styles.hero}>
+        <div className={styles.safetyRow}>
+          {SAFETY_ROW.map((card) => (
+            <div key={card.label} className={`${styles.safetyCard} ${card.highlight ? styles.safetyCardHighlight : ""}`}>
+              <p className={styles.safetyCardLabel}>{card.label}</p>
+              <p className={styles.safetyCardBody}>{card.body}</p>
+            </div>
+          ))}
+        </div>
         <div className={styles.heroRow}>
           <div className={styles.heroCopy}>
             <p className={styles.eyebrow}>PARALLEL · TWINS</p>
-            <h1 className={styles.heroHeadline}>Identical, or fraternal.</h1>
+            <h1 className={styles.heroHeadline}>Identical or fraternal.</h1>
             <p className={styles.heroBody}>
               A twin is a version of you living right now, in a reality close enough to hold a conversation. Every
               twin is classified by how far the two realities have drifted apart.
             </p>
             <div className={styles.ctas}>
-              <Button variant="primary" style={{ background: "var(--color-signal-degraded)", color: "var(--color-text-primary)" }}>
-                Download Parallel
-              </Button>
               <Button
                 variant="secondary"
-                style={{ color: "var(--color-accent-default)", borderColor: "var(--color-accent-default)", borderWidth: "1.5px" }}
+                style={{ color: "var(--color-brand-cyan)", borderColor: "var(--color-brand-cyan)", borderWidth: "1.5px" }}
               >
                 Read the safety guide
               </Button>
@@ -142,40 +153,9 @@ export default function Twins() {
         </div>
       </section>
 
-      <div className={styles.requirementsWrap}>
-        <div className={styles.requirements}>
-          <p className={styles.requirementsEyebrow}>REQUIREMENTS</p>
-          <p className={styles.requirementsBody}>
-            iOS 19 or later, Android 16 or later. Active relay coverage at both ends. Parallel will not open a channel
-            from a dead zone, and will not queue voice or video.
-          </p>
-        </div>
-      </div>
-
-      <section className={styles.classification}>
-        <p className={styles.classificationEyebrow}>CLASSIFICATION</p>
-        <h2 className={styles.classificationHeadline}>How close is close.</h2>
-        <p className={styles.classificationBody}>
-          Two realities that diverged recently produce a twin almost indistinguishable from you. Two that diverged a
-          long time ago produce someone who shares your face and very little else. The percentage is a measure of
-          drift, not of compatibility.
-        </p>
-        <div className={styles.twinList}>
-          {TWINS.map((twin) => (
-            <div key={twin.id} className={styles.twinRow}>
-              <span className={styles.twinId}>{twin.id}</span>
-              <span className={styles.twinName}>{twin.name}</span>
-              <span className={styles.twinClass} style={{ color: twin.color }}>
-                {twin.classification}
-              </span>
-              <span className={styles.twinPercent}>{twin.percent}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className={styles.exchange}>
         <p className={styles.exchangeEyebrow}>EXCHANGE</p>
+        <span className={styles.comingSoonBadge}>✨ coming soon</span>
         <h2 className={styles.exchangeHeadline}>Fifteen minutes.</h2>
         <p className={styles.exchangeBody}>
           After enough contact, a twin&apos;s profile offers an exchange. If you both agree, you spend fifteen
@@ -192,15 +172,62 @@ export default function Twins() {
         </div>
       </section>
 
-      <section className={styles.related}>
-        <h2 className={styles.relatedHeading}>Also inside Parallel</h2>
-        <div className={styles.relatedRow}>
-          {RELATED.map((card, i) => (
-            <Link key={i} href={card.href} className={styles.relatedCard}>
-              <p className={styles.relatedTitle}>{card.title}</p>
-              <p className={styles.relatedBody}>{card.body}</p>
-            </Link>
+      <div className={styles.classificationWrap}>
+        <div className={styles.classification}>
+          <p className={styles.classificationEyebrow}>CLASSIFICATION</p>
+          <h2 className={styles.classificationHeadline}>How close is close.</h2>
+          <p className={styles.classificationBody}>
+            Two realities that diverged recently produce a twin almost indistinguishable from you. Two that diverged
+            a long time ago produce someone who shares your face and very little else. The percentage is a measure
+            of drift, not of compatibility.
+          </p>
+        </div>
+        <div className={styles.twinList}>
+          {TWINS.map((twin) => (
+            <div key={twin.id} className={styles.twinRow}>
+              <span className={styles.twinId}>{twin.id}</span>
+              <span className={styles.twinName}>{twin.name}</span>
+              <span className={styles.twinClass} style={{ color: twin.color }}>
+                {twin.classification}
+              </span>
+              <span className={styles.twinPercent}>{twin.percent}</span>
+            </div>
           ))}
+        </div>
+      </div>
+
+      <section className={styles.preparation}>
+        <p className={styles.preparationEyebrow}>PREPARATION</p>
+        <h2 className={styles.preparationHeadline}>Before a session.</h2>
+        <p className={styles.preparationBody}>
+          Settle into a comfortable position. Allow the room to remain dark and quiet. The camera flash and tones
+          will guide you into a meditative state.
+        </p>
+        <div className={styles.requirementsGrid}>
+          {REQUIREMENTS.map((req) => (
+            <div key={req.number} className={styles.requirementCard}>
+              <p className={styles.requirementNumber}>{req.number}</p>
+              <p className={styles.requirementTitle}>{req.title}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.safety}>
+        <div className={styles.safetyNotice}>
+          <p className={styles.safetyNoticeLabel}>SAFETY</p>
+          <p className={styles.safetyNoticeBody}>
+            Parallel is not therapy and is not a substitute for it. A small number of participants report distress in
+            the days after a session. If that happens, stop, and contact the clinical line in the app. We will not
+            ask you to continue.
+          </p>
+        </div>
+        <div className={styles.warning}>
+          <p className={styles.warningLabel}>PHOTOSENSITIVITY</p>
+          <p className={styles.warningBody}>
+            This experience uses camera flash and tonal frequencies. Do not use Echoes if you have photosensitivity
+            or are prone to seizures.
+          </p>
         </div>
       </section>
 

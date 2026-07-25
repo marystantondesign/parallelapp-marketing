@@ -137,7 +137,7 @@ export default function Home() {
 
       <section className={styles.inside}>
         <div className={styles.insideHead}>
-          <p className={styles.eyebrow}>INSIDE PARALLEL</p>
+          <p className={styles.insideEyebrow}>INSIDE PARALLEL</p>
           <h2 className={styles.insideHeadline}>One app. Three directions.</h2>
           <p className={styles.insideBody}>
             You download one application. Twins, Dreams, and Echoes are included with every Parallel account and run
@@ -201,7 +201,7 @@ export default function Home() {
 
       <section className={styles.safety}>
         <div className={styles.sectionHead}>
-          <p className={styles.eyebrow}>SAFETY</p>
+          <p className={styles.sectionHeadEyebrow}>SAFETY</p>
           <h2 className={styles.sectionHeadline}>Designed with limits.</h2>
         </div>
         <div className={styles.safetyRow}>

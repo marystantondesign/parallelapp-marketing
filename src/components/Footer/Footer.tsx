@@ -2,16 +2,15 @@ import Link from "next/link";
 import styles from "./Footer.module.css";
 
 const COLUMNS: { heading: string; links: string[] }[] = [
-  { heading: "INSIDE PARALLEL", links: ["Overview", "Twins", "Dreams", "Echoes", "Exchange", "Download"] },
-  { heading: "CONTINUUM NETWORK", links: ["Relay network", "Coverage map", "Network status", "Relay hardware", "Patents"] },
-  { heading: "LABS", links: ["Current betas", "Request access", "Research partners", "CERN collaboration", "Publications"] },
-  { heading: "COMPANY", links: ["Vera Continuum", "Leadership", "Careers", "Newsroom", "Timeline"] },
-  { heading: "SUPPORT", links: ["Help center", "Contact", "Session safety", "Report an issue", "Accessibility"] },
+  { heading: "INSIDE PARALLEL", links: ["Twins", "Dreams", "Echoes"] },
+  { heading: "CONTINUUM NETWORK", links: ["Relay network", "Relay hardware", "Patents"] },
+  { heading: "LABS", links: ["Current betas", "Research partners", "CERN collaboration", "Publications"] },
+  { heading: "COMPANY", links: ["Vera Continuum", "Leadership", "Careers", "Newsroom"] },
+  { heading: "SUPPORT", links: ["Help center", "Session safety", "Accessibility"] },
 ];
 
 // Only labels with a built page get a real href; everything else stays a placeholder until that page exists.
 const HREF_BY_LABEL: Record<string, string> = {
-  Overview: "/the-app",
   Twins: "/twins",
   Dreams: "/dreams",
   Echoes: "/echoes",
