@@ -1,8 +1,23 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import Button from "@/components/Button/Button";
 import styles from "./page.module.css";
+
+// TODO(marketing): this page is the real, in-repo marketing site (built and
+// synced from Figma). If the marketing site ever moves to its own deployment
+// instead, swap this whole page for a redirect:
+//   import { redirect } from "next/navigation";
+//   export default function MarketingPage() { redirect("https://your-marketing-url"); }
+// or an iframe embed:
+//   <iframe src="https://your-marketing-url" className="h-screen w-full border-0" />
+
+export const metadata: Metadata = {
+  title: "Parallel — Meet yourself.",
+  description:
+    "Text, call, and video with verified versions of yourself in neighboring realities. Included with every Parallel account.",
+};
 
 const DIRECTIONS = [
   { eyebrow: "SIDEWAYS", title: "Twins", body: "A version of you living right now, in a reality close enough to talk to.", color: "var(--color-brand-relay-blue)", href: "/twins" },

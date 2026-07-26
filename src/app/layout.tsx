@@ -1,11 +1,31 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { fontVariables } from "@/lib/fonts";
 import "@/styles/globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  title: "Parallel — Meet yourself.",
-  description:
-    "Text, call, and video with verified versions of yourself in neighboring realities. Included with every Parallel account.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Parallel",
+    template: "%s",
+  },
+  description: "Screenplay, marketing site, and app design for Parallel — best viewed on mobile.",
+  openGraph: {
+    title: "Parallel",
+    description: "Screenplay, marketing site, and app design for Parallel — best viewed on mobile.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0b0a09",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
