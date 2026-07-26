@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
+import AppScreenMockup from "@/components/AppScreenMockup/AppScreenMockup";
 import styles from "./page.module.css";
 
 const SECTIONS = [
@@ -77,6 +78,9 @@ export default function TheApp() {
               </div>
             </Link>
           ))}
+        </div>
+        <div className={styles.mockupWrap}>
+          <AppScreenMockup />
         </div>
       </section>
 

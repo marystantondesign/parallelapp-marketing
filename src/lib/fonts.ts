@@ -1,4 +1,4 @@
-import { Fascinate, Gilda_Display, Newsreader, Public_Sans, JetBrains_Mono, Schibsted_Grotesk } from "next/font/google";
+import { Fascinate, Gilda_Display, Newsreader, Public_Sans, JetBrains_Mono, Schibsted_Grotesk, Inter } from "next/font/google";
 
 export const fascinate = Fascinate({
   subsets: ["latin"],
@@ -43,6 +43,13 @@ export const schibstedGrotesk = Schibsted_Grotesk({
   display: "swap",
 });
 
+export const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const fontVariables = [
   fascinate.variable,
   gildaDisplay.variable,
@@ -50,4 +57,5 @@ export const fontVariables = [
   publicSans.variable,
   jetBrainsMono.variable,
   schibstedGrotesk.variable,
+  inter.variable,
 ].join(" ");

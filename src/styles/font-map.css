@@ -7,4 +7,5 @@
   --font-family-public-sans: var(--font-public-sans), -apple-system, sans-serif;
   --font-family-jetbrains-mono: var(--font-jetbrains-mono), "Courier New", monospace;
   --font-family-schibsted-grotesk: var(--font-schibsted-grotesk), -apple-system, sans-serif;
+  --font-family-inter: var(--font-inter), -apple-system, sans-serif;
 }

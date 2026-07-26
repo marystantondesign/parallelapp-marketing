@@ -74,6 +74,13 @@
   width: 100%;
 }
 
+.mockupWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 80px;
+}
+
 .sectionCard {
   display: flex;
   flex: 1 0 0;
