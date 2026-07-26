@@ -15,9 +15,9 @@
   padding: 40px 120px 0;
   background: linear-gradient(
     180deg,
-    var(--color-bg-sunken) 0%,
-    #c1b6a1 25%,
-    var(--color-brand-graphite) 100%
+    rgba(222, 211, 187, 0.6) 0%,
+    rgba(193, 182, 161, 0.6) 25%,
+    rgba(42, 33, 29, 0.6) 100%
   );
 }
 
@@ -80,7 +80,7 @@
   font-size: 12px;
   letter-spacing: 0.96px;
   text-transform: uppercase;
-  color: var(--color-brand-cyan);
+  color: var(--color-brand-stone);
   margin: 0;
 }
 
@@ -362,7 +362,7 @@
   gap: 40px;
   width: 100%;
   padding: 60px 120px;
-  background: #975f1f;
+  background: #2a211d;
 }
 
 .preparationEyebrow {
@@ -435,7 +435,7 @@
   gap: 48px;
   width: 100%;
   padding: 0 120px 120px;
-  background: #975f1f;
+  background: #2a211d;
 }
 
 .safetyNotice {
