@@ -11,7 +11,9 @@ export default function Nav() {
         <Link href="/the-app" className={styles.link}>
           The App
         </Link>
-        <p className={styles.linkStatic}>Company</p>
+        <Link href="/company" className={styles.link}>
+          Company
+        </Link>
         <Link href="/download" className={styles.download}>
           Download
         </Link>
