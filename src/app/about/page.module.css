@@ -1,0 +1,256 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: var(--color-bg-canvas);
+}
+
+.eyebrow {
+  font-family: var(--text-eyebrow-font-family);
+  font-weight: var(--text-eyebrow-font-weight);
+  font-size: var(--text-eyebrow-font-size);
+  letter-spacing: var(--text-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  margin: 0 0 16px;
+}
+
+.sectionTitle {
+  font-family: var(--text-display-l-font-family);
+  font-weight: var(--text-display-l-font-weight);
+  font-size: clamp(28px, 3.4vw, 38px);
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+.sectionBody {
+  font-family: var(--text-body-default-font-family);
+  font-size: var(--text-body-default-font-size);
+  line-height: var(--text-body-default-line-height);
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin: 0;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 1360px;
+  padding: 56px clamp(20px, 6vw, 120px) 72px;
+}
+
+.heroHeadline {
+  font-family: var(--text-display-xl-font-family);
+  font-weight: var(--text-display-xl-font-weight);
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.08;
+  letter-spacing: var(--text-display-xl-letter-spacing);
+  color: var(--color-text-primary);
+  margin: 0 0 20px;
+}
+
+.heroBody {
+  font-family: var(--text-body-large-font-family);
+  font-size: var(--text-body-large-font-size);
+  line-height: var(--text-body-large-line-height);
+  color: var(--color-text-secondary);
+  max-width: 440px;
+  margin: 0;
+}
+
+.heroArt {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #e8ecfe 0%, #cfd6f2 60%, #aab6ea 100%);
+}
+
+/* Mission */
+.mission {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: 48px;
+  width: 100%;
+  max-width: 1360px;
+  padding: 64px clamp(20px, 6vw, 120px);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.missionCols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.missionCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 20px;
+  border-left: 1px solid var(--color-border-default);
+}
+
+.missionIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+
+.missionColLabel {
+  font-family: var(--text-ui-label-font-family);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.missionColBody {
+  font-family: var(--text-body-small-font-family);
+  font-size: var(--text-body-small-font-size);
+  line-height: var(--text-body-small-line-height);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Science */
+.science {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 1360px;
+  padding: 64px clamp(20px, 6vw, 120px);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.scienceArt {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at 60% 40%, rgba(48, 86, 245, 0.35), rgba(10, 10, 10, 0.75) 75%);
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  font-family: var(--text-body-default-font-family);
+  font-size: 15px;
+  color: var(--color-text-primary);
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-accent-subtle);
+  color: var(--color-accent-dark);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Global */
+.global {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 1360px;
+  padding: 64px clamp(20px, 6vw, 120px);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.globalArt {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at 70% 30%, #2a3a7a 0%, #0a0a0a 70%);
+}
+
+/* Team */
+.team {
+  width: 100%;
+  max-width: 1360px;
+  padding: 64px clamp(20px, 6vw, 120px) 96px;
+  border-top: 1px solid var(--color-border-default);
+}
+
+.teamCopy {
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.teamArt {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  background: linear-gradient(165deg, var(--color-bg-subtle) 0%, var(--color-accent-subtle) 100%);
+}
+
+.teamLabel {
+  font-family: var(--text-ui-label-font-family);
+  font-weight: var(--text-ui-label-font-weight);
+  font-size: 14px;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.teamBody {
+  font-family: var(--text-body-small-font-family);
+  font-size: var(--text-body-small-font-size);
+  line-height: var(--text-body-small-line-height);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .hero,
+  .mission,
+  .science,
+  .global {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .missionCols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

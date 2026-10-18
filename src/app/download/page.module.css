@@ -1,0 +1,77 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: var(--color-bg-canvas);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 640px;
+  padding: 120px clamp(20px, 6vw, 120px) 160px;
+}
+
+.eyebrow {
+  font-family: var(--text-eyebrow-font-family);
+  font-weight: var(--text-eyebrow-font-weight);
+  font-size: var(--text-eyebrow-font-size);
+  letter-spacing: var(--text-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  margin: 0 0 16px;
+}
+
+.headline {
+  font-family: var(--text-display-l-font-family);
+  font-weight: var(--text-display-l-font-weight);
+  font-size: clamp(32px, 4.4vw, 44px);
+  color: var(--color-text-primary);
+  margin: 0 0 20px;
+}
+
+.body {
+  font-family: var(--text-body-large-font-family);
+  font-size: var(--text-body-large-font-size);
+  line-height: var(--text-body-large-line-height);
+  color: var(--color-text-secondary);
+  margin: 0 0 40px;
+}
+
+.storesRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.storeBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-inverse);
+  color: var(--color-text-inverse);
+  opacity: 0.55;
+  cursor: not-allowed;
+  font-family: var(--text-ui-label-font-family);
+  font-weight: var(--text-ui-label-font-weight);
+  font-size: 15px;
+}
+
+.storeBadgeMeta {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.note {
+  font-family: var(--text-body-small-font-family);
+  font-size: var(--text-body-small-font-size);
+  color: var(--color-text-muted);
+  margin: 0;
+}

@@ -1,0 +1,57 @@
+.selector {
+  display: flex;
+  justify-content: center;
+  gap: clamp(32px, 8vw, 96px);
+  width: 100%;
+  padding: 18px clamp(20px, 6vw, 120px) 0;
+  overflow-x: auto;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid transparent;
+  flex-shrink: 0;
+}
+
+.number {
+  font-family: var(--text-mono-font-family);
+  font-size: 11px;
+  letter-spacing: var(--text-mono-letter-spacing);
+  color: var(--color-text-muted);
+}
+
+.label {
+  font-family: var(--text-ui-label-font-family);
+  font-weight: var(--text-ui-label-font-weight);
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--color-text-secondary);
+}
+
+.itemActive_twins {
+  border-bottom-color: var(--color-accent);
+}
+.itemActive_twins .number,
+.itemActive_twins .label {
+  color: var(--color-accent);
+}
+
+.itemActive_dreams {
+  border-bottom-color: var(--color-dreams);
+}
+.itemActive_dreams .number,
+.itemActive_dreams .label {
+  color: var(--color-dreams-dark);
+}
+
+.itemActive_echoes {
+  border-bottom-color: var(--color-echoes);
+}
+.itemActive_echoes .number,
+.itemActive_echoes .label {
+  color: var(--color-echoes-dark);
+}

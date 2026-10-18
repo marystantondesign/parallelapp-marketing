@@ -1,29 +1,33 @@
 import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
-import Button from "@/components/Button/Button";
+import CtaLink from "@/components/CtaLink/CtaLink";
+import PaperThumb from "@/components/PaperThumb/PaperThumb";
+import { PAPERS } from "@/lib/research";
 import styles from "./page.module.css";
 
-const DIRECTIONS = [
-  { eyebrow: "SIDEWAYS", title: "Twins", body: "A version of you living right now, in a reality close enough to talk to.", color: "var(--color-brand-relay-blue)", href: "/twins" },
-  { eyebrow: "ELSEWHERE", title: "Dreams", body: "The parallels where no version of you exists. You have been visiting them your whole life.", color: "var(--color-brand-violet)", href: "/dreams" },
-  { eyebrow: "BACKWARDs", title: "Echoes", body: "Your own line, further back. Reached by trance rather than by relay.", color: "var(--color-brand-gold)", href: "/echoes" },
+const EXPLORE = [
+  {
+    number: "01",
+    title: "Twins",
+    body: "Connect with verified versions of yourself in neighboring realities.",
+    href: "/experiences/twins",
+  },
+  {
+    number: "02",
+    title: "Dreams",
+    body: "Revisit the dreams you've had and explore the worlds within them.",
+    href: "/experiences/dreams",
+  },
+  {
+    number: "03",
+    title: "Echoes",
+    body: "Discover the lives that came before — and what might have been.",
+    href: "/experiences/echoes",
+  },
 ];
 
-const SPARKLES = [
-  { top: 130, left: 120, size: 22, opacity: 1 },
-  { top: 300, left: 300, size: 25, opacity: 0.8 },
-  { top: 77, left: 1302, size: 27, opacity: 0.9 },
-  { top: 660, left: 1030, size: 27, opacity: 0.7 },
-  { top: 720, left: 190, size: 27, opacity: 0.75 },
-  { top: 430, left: 1290, size: 27, opacity: 0.85 },
-];
-
-const PAPERS = [
-  { title: "Stabilized information transfer across adjacent reality states", id: "VCL-2019-004" },
-  { title: "Hypnotic induction protocols for recollective sessions", id: "VCL-2023-017" },
-  { title: "Relay array siting and regional coverage density", id: "VCL-2025-002" },
-];
+const NETWORK_STATS = ["Relay arrays", "Quantum links", "Verifications", "Global coverage"];
 
 export default function Home() {
   return (
@@ -31,113 +35,145 @@ export default function Home() {
       <Nav />
 
       <section className={styles.hero}>
-        <p className={styles.heroHeadline}>
-          <span style={{ color: "#57534e" }}>Meet yourselves in</span>{" "}
-          <span style={{ color: "#6a2a11" }}>Parallels</span>
-          <span>.</span>
-        </p>
-        <p className={styles.heroSubhead}>
-          Text, call, and video with verified versions of yourself in neighboring realities. Included with every
-          Parallel account.
-        </p>
-        <div className={styles.ctaRow}>
-          <Button
-            variant="primary"
-            style={{ background: "var(--color-signal-degraded)", color: "var(--color-brand-cyan)" }}
-          >
-            Download Parallel
-          </Button>
-          <Button
-            variant="secondary"
-            style={{ color: "var(--color-brand-cyan)", borderColor: "var(--color-brand-cyan)", borderWidth: "1.5px" }}
-          >
-            Check coverage
-          </Button>
-        </div>
-        <p className={styles.heroFinePrint}>Available on iPhone, Android, and web. Requires relay coverage in your area.</p>
-
-        {SPARKLES.map((s, i) => (
-          <span
-            key={i}
-            className={styles.sparkle}
-            style={{ top: s.top, left: s.left, fontSize: s.size, opacity: s.opacity }}
-            data-figma-asset-pending="70:827"
-            aria-hidden="true"
-          >
-            ✦
-          </span>
-        ))}
-      </section>
-
-      <section className={styles.names}>
-        <h2 className={styles.namesHeadline}>
-          <span style={{ color: "#6a2a11" }}>Parallels</span> are realities running alongside this one.
-        </h2>
-        <p className={styles.namesBody}>
-          They&rsquo;re places you can reach without leaving your body. People have been reaching them for as long as
-          we know, in sleep, in trance, after something goes badly wrong. The natural ability is rare; that&rsquo;s
-          why we built Parallel as a universal instrument.
-        </p>
-        <div className={styles.directions}>
-          {DIRECTIONS.map((d) => (
-            <Link
-              key={d.title}
-              href={d.href}
-              className={styles.direction}
-              style={{ "--direction-color": d.color } as React.CSSProperties}
-            >
-              <p className={styles.directionEyebrow}>{d.eyebrow}</p>
-              <p className={styles.directionTitle}>{d.title}</p>
-              <p className={styles.directionBody}>{d.body}</p>
-            </Link>
-          ))}
-        </div>
-        <div className={styles.insideHead}>
-          <h2 className={styles.insideHeadline}>One app. Three directions.</h2>
-          <p className={styles.insideBody}>
-            You download one application. Twins, Dreams, and Echoes are included with every Parallel account and run
-            on the same Continuum Network.
+        <div className={styles.heroCopy}>
+          <p className={styles.eyebrow}>A new frontier in human experience</p>
+          <h1 className={styles.heroHeadline}>Reality is bigger than we thought.</h1>
+          <p className={styles.heroBody}>
+            Connect with alternate versions of yourself. Explore the worlds you visit in dreams. Discover the lives
+            that came before.
           </p>
+          <div className={styles.heroCtas}>
+            <CtaLink href="/download" variant="primary">
+              Get Parallel <span aria-hidden="true">↗</span>
+            </CtaLink>
+            <CtaLink href="/technology" variant="ghost">
+              Learn more <span aria-hidden="true">→</span>
+            </CtaLink>
+          </div>
+        </div>
+        <div className={styles.heroArt} data-art-pending="Overlapping duotone portrait, two realities">
+          <div className={styles.heroArtRing} />
+          <p className={styles.heroArtLabel}>Portrait artwork — pending asset</p>
         </div>
       </section>
 
-      <div className={styles.banner} data-figma-asset-pending="56:932">
-        Image pending — Figma asset unreachable from this environment
-      </div>
+      <section className={styles.explore}>
+        <p className={styles.eyebrow}>Three ways to explore</p>
+        <div className={styles.exploreRow}>
+          <div className={styles.exploreCards}>
+            {EXPLORE.map((item) => (
+              <Link key={item.title} href={item.href} className={styles.exploreCard}>
+                <span className={styles.exploreNumber}>{item.number}</span>
+                <p className={styles.exploreTitle}>{item.title}</p>
+                <p className={styles.exploreBody}>{item.body}</p>
+                <span className={styles.exploreArrow} aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className={styles.exploreArt} aria-hidden="true">
+            <span className={styles.exploreArtCircle} />
+            <span className={styles.exploreArtCircle} />
+          </div>
+        </div>
+      </section>
 
-      <section className={styles.coverage}>
-        <div className={styles.coverageRow}>
-          <div className={styles.coverageMap}>
-            <div className={styles.diagramPlaceholder} data-figma-asset-pending="39:49">
-              Diagram / Relay array — pending asset
+      <section className={styles.app}>
+        <div className={styles.appCopy}>
+          <p className={styles.eyebrow}>The Parallel app</p>
+          <h2 className={styles.appHeadline}>The extraordinary feels ordinary.</h2>
+          <p className={styles.appBody}>Beautifully designed. Intuitively simple. Built on breakthrough science.</p>
+          <Link href="/technology" className={styles.appLink}>
+            See the app in action <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+
+        <div className={styles.phones} data-art-pending="Three overlapping phone mockups">
+          <div className={`${styles.phone} ${styles.phoneDreams}`}>
+            <div className={styles.phoneStatusBar}>
+              <span>9:41</span>
             </div>
+            <p className={styles.phoneLabel}>Dreams</p>
+            <p className={styles.phoneSub}>Dream journal</p>
           </div>
-          <div className={styles.coverageCopy}>
-            <h2 className={styles.coverageHeadline}>Coverage where you live.</h2>
-            <p className={styles.coverageBody}>
-              Parallel requires a Continuum Relay Array within range. Coverage is strongest in metropolitan areas and
-              expands quarterly.
-            </p>
-            <div className={styles.addressField}>
-              <span className={styles.addressPlaceholder}>Enter your address</span>
-              <button className={styles.checkButton}>Check</button>
+          <div className={`${styles.phone} ${styles.phoneTwins}`}>
+            <div className={styles.phoneStatusBar}>
+              <span>9:41</span>
             </div>
-            <p className={styles.coverageMeta}>2,140 relays active. Last updated 14 July 2026.</p>
+            <div className={styles.phoneAvatar} />
+            <p className={styles.phoneLabel}>Your Twin</p>
+            <p className={styles.phoneSub}>Verified · 12:07</p>
           </div>
+          <div className={`${styles.phone} ${styles.phoneEchoes}`}>
+            <div className={styles.phoneStatusBar}>
+              <span>9:41</span>
+            </div>
+            <p className={styles.phoneLabel}>Echoes</p>
+            <p className={styles.phoneSub}>A past life</p>
+          </div>
+        </div>
+
+        <div className={styles.appAvailability}>
+          <p className={styles.appAvailabilityLabel}>Available on iOS and Android</p>
+          <div className={styles.storeBadges}>
+            <CtaLink href="/download" variant="secondary" className={styles.storeBadge}>
+              <span className={styles.storeBadgeMeta}>Download on the</span>
+              <span>App Store</span>
+            </CtaLink>
+            <CtaLink href="/download" variant="secondary" className={styles.storeBadge}>
+              <span className={styles.storeBadgeMeta}>Get it on</span>
+              <span>Google Play</span>
+            </CtaLink>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.science}>
+        <div className={styles.scienceCopy}>
+          <p className={styles.eyebrow}>The science</p>
+          <h2 className={styles.scienceHeadline}>Built on real research. Powered by a global network.</h2>
+          <p className={styles.scienceBody}>
+            Every Parallel experience depends on the same infrastructure: a global network of relay arrays that hold
+            adjacent reality states stable long enough to reach them. The physics is peer-reviewed. The network is
+            expanding every quarter.
+          </p>
+          <Link href="/technology" className={styles.appLink}>
+            Learn about our research <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+        <div className={styles.scienceArt}>
+          <div className={styles.scienceArtDiagram} aria-hidden="true" />
+          <ul className={styles.scienceStats}>
+            {NETWORK_STATS.map((stat) => (
+              <li key={stat}>{stat}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
       <section className={styles.research}>
-        <div className={styles.sectionHead}>
-          <p className={styles.eyebrow}>RESEARCH</p>
-          <h2 className={styles.sectionHeadline}>Published work.</h2>
+        <div className={styles.researchHead}>
+          <div>
+            <p className={styles.eyebrow}>Research</p>
+            <h2 className={styles.researchHeadline}>Published work.</h2>
+          </div>
+          <Link href="/research" className={styles.appLink}>
+            View all publications <span aria-hidden="true">→</span>
+          </Link>
         </div>
-        <div className={styles.paperList}>
+        <div className={styles.researchList}>
           {PAPERS.map((paper) => (
-            <div key={paper.id} className={styles.paper}>
-              <p className={styles.paperTitle}>{paper.title}</p>
-              <p className={styles.paperId}>{paper.id}</p>
-            </div>
+            <Link key={paper.slug} href={`/research/${paper.slug}`} className={styles.researchRow}>
+              <div className={styles.researchThumb}>
+                <PaperThumb kind={paper.thumb} />
+              </div>
+              <p className={styles.researchTitle}>{paper.title}</p>
+              <span className={styles.researchId}>{paper.id}</span>
+              <span className={styles.researchArrow} aria-hidden="true">
+                →
+              </span>
+            </Link>
           ))}
         </div>
       </section>

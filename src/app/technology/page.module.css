@@ -1,0 +1,222 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: var(--color-bg-canvas);
+}
+
+.eyebrow {
+  font-family: var(--text-eyebrow-font-family);
+  font-weight: var(--text-eyebrow-font-weight);
+  font-size: var(--text-eyebrow-font-size);
+  letter-spacing: var(--text-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 16px;
+}
+
+.header {
+  width: 100%;
+  max-width: 1360px;
+  padding: 64px clamp(20px, 6vw, 120px) 16px;
+}
+
+.headline {
+  font-family: var(--text-display-l-font-family);
+  font-weight: var(--text-display-l-font-weight);
+  font-size: clamp(32px, 4vw, 44px);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.sections {
+  width: 100%;
+  max-width: 1360px;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+  padding: 56px clamp(20px, 6vw, 120px);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.sectionLabel {
+  font-family: var(--text-mono-font-family);
+  font-size: 12px;
+  letter-spacing: var(--text-mono-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 16px;
+}
+
+.sectionTitle {
+  font-family: var(--text-heading-1-font-family);
+  font-weight: var(--text-heading-1-font-weight);
+  font-size: clamp(28px, 3.4vw, 38px);
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  margin: 0 0 16px;
+}
+
+.sectionBody {
+  font-family: var(--text-body-default-font-family);
+  font-size: var(--text-body-default-font-size);
+  line-height: var(--text-body-default-line-height);
+  color: var(--color-text-secondary);
+  max-width: 440px;
+  margin: 0 0 16px;
+}
+
+.sectionLink {
+  display: inline-block;
+  font-family: var(--text-ui-label-font-family);
+  font-weight: var(--text-ui-label-font-weight);
+  font-size: 15px;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.sectionArt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.art {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.artPolar {
+  background: radial-gradient(circle at center, rgba(48, 86, 245, 0.3), rgba(48, 86, 245, 0.04) 70%);
+  position: relative;
+}
+
+.artPolar::before,
+.artPolar::after {
+  content: "";
+  position: absolute;
+  background: rgba(48, 86, 245, 0.35);
+}
+
+.artPolar::before {
+  left: 50%;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+}
+
+.artPolar::after {
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+}
+
+.artMap,
+.artFaces,
+.artBuilding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  font-family: var(--text-mono-font-family);
+  font-size: 11px;
+  letter-spacing: var(--text-mono-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+
+.artMap {
+  background: linear-gradient(160deg, #eef0fb 0%, #dfe4fb 100%);
+}
+
+.artMap::before {
+  content: "Map artwork — pending asset";
+}
+
+.artFaces {
+  background: radial-gradient(circle at center, #e8ecfe 0%, #f6f7fd 100%);
+}
+
+.artFaces::before {
+  content: "Verification artwork — pending asset";
+}
+
+.artBuilding {
+  background: linear-gradient(160deg, #e4e8f8 0%, #cfd6f2 100%);
+}
+
+.artBuilding::before {
+  content: "Campus photo — pending asset";
+}
+
+.appsRow {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+}
+
+.appIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.appIconMark {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-default);
+}
+
+.appIconMark_twins {
+  background: radial-gradient(circle at center, rgba(48, 86, 245, 0.45), transparent 70%);
+}
+
+.appIconMark_dreams {
+  background: radial-gradient(circle at center, rgba(139, 124, 240, 0.45), transparent 70%);
+}
+
+.appIconMark_echoes {
+  background: radial-gradient(circle at center, rgba(87, 84, 78, 0.5), transparent 70%);
+}
+
+.appIconLabel {
+  font-family: var(--text-ui-label-font-family);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.appIconCaption {
+  font-family: var(--text-body-small-font-family);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .appsRow {
+    flex-wrap: wrap;
+  }
+}

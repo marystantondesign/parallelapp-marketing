@@ -2,42 +2,82 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   width: 100%;
-  padding: 24px 120px;
-  background: var(--color-bg-inverse);
-  border-bottom: 1px solid var(--color-signal-degraded);
+  padding: 20px clamp(20px, 6vw, 120px);
+  background: var(--color-bg-canvas);
+  border-bottom: 1px solid var(--color-border-default);
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 
 .wordmark {
   display: block;
-  font-family: var(--text-mono-body-font-family);
-  font-size: 36px;
-  line-height: 18px;
-  letter-spacing: 5.4px;
-  text-transform: uppercase;
-  color: var(--color-brand-gold);
+  font-family: var(--text-ui-label-font-family);
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: var(--color-text-primary);
   text-decoration: none;
-  margin: 0;
+  flex-shrink: 0;
 }
 
 .links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.links::-webkit-scrollbar {
+  display: none;
 }
 
 .link {
   font-family: var(--text-body-small-font-family);
   font-size: var(--text-body-small-font-size);
-  color: var(--color-text-inverse);
+  color: var(--color-text-secondary);
   white-space: nowrap;
 }
 
-.download {
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-md);
-  padding: 8px 16px;
-  font-family: var(--text-body-small-font-family);
-  font-size: var(--text-body-small-font-size);
-  color: var(--color-text-inverse);
+.link:hover {
+  color: var(--color-text-primary);
+}
+
+.linkActive {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 10px 20px;
+  min-height: 40px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-accent-text-on);
+  font-family: var(--text-ui-label-font-family);
+  font-weight: var(--text-ui-label-font-weight);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.cta:hover {
+  background: var(--color-accent-dark);
+}
+
+@media (max-width: 720px) {
+  .links {
+    gap: 18px;
+  }
+
+  .cta span {
+    display: none;
+  }
 }
