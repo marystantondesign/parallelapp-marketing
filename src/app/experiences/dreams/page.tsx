@@ -9,6 +9,7 @@ const DATA: ExperienceData = {
   heroBody:
     "Revisit the dreams you've had and explore the worlds within them. Record, analyze, and return to your dreams with extraordinary clarity.",
   artPending: "Dreamlike cloudscape with a glowing doorway and figure",
+  heroImage: { src: "/images/dreams-hero.png", alt: "Figure walking toward a glowing doorway in a dreamlike cloudscape beneath a moon" },
   midTitle: "Your dreams. Real places.",
   midBody:
     "Your dreams are more than imagination. They're connections to neighboring realities. Parallel helps you record, understand, and revisit them.",

@@ -97,29 +97,7 @@
 }
 
 .artPolar {
-  background: radial-gradient(circle at center, rgba(48, 86, 245, 0.3), rgba(48, 86, 245, 0.04) 70%);
   position: relative;
-}
-
-.artPolar::before,
-.artPolar::after {
-  content: "";
-  position: absolute;
-  background: rgba(48, 86, 245, 0.35);
-}
-
-.artPolar::before {
-  left: 50%;
-  top: 10%;
-  bottom: 10%;
-  width: 1px;
-}
-
-.artPolar::after {
-  top: 50%;
-  left: 10%;
-  right: 10%;
-  height: 1px;
 }
 
 .artMap,

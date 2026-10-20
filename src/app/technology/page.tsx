@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import styles from "./page.module.css";
@@ -77,7 +78,17 @@ export default function Technology() {
               )}
             </div>
             <div className={styles.sectionArt}>
-              {section.art === "polar" && <div className={`${styles.art} ${styles.artPolar}`} aria-hidden="true" />}
+              {section.art === "polar" && (
+                <div className={`${styles.art} ${styles.artPolar}`}>
+                  <Image
+                    src="/images/technology-intro-sphere.png"
+                    alt="Wireframe sphere diagram representing quantum entanglement between relay arrays"
+                    fill
+                    sizes="(max-width: 860px) 100vw, 50vw"
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
+              )}
               {section.art === "map" && (
                 <div className={`${styles.art} ${styles.artMap}`} data-art-pending="World map, relay node overlay" />
               )}

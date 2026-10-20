@@ -108,6 +108,10 @@
   letter-spacing: var(--text-mono-letter-spacing);
   text-transform: uppercase;
   color: var(--theme-accent-dark);
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(2px);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
   margin: 0;
 }
 
@@ -243,8 +247,10 @@
 }
 
 .closerArt {
+  position: relative;
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-md);
+  overflow: hidden;
   background: linear-gradient(160deg, var(--theme-accent-subtle) 0%, var(--color-bg-subtle) 100%);
 }
 

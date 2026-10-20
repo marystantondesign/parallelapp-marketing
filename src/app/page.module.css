@@ -65,33 +65,6 @@
   overflow: hidden;
 }
 
-.heroArtRing {
-  position: absolute;
-  width: 70%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 1px solid rgba(48, 86, 245, 0.35);
-}
-
-.heroArtRing::before {
-  content: "";
-  position: absolute;
-  inset: 14%;
-  border-radius: 50%;
-  border: 1px solid rgba(48, 86, 245, 0.25);
-}
-
-.heroArtLabel {
-  position: relative;
-  font-family: var(--text-mono-font-family);
-  font-size: 11px;
-  letter-spacing: var(--text-mono-letter-spacing);
-  text-transform: uppercase;
-  color: var(--color-accent-dark);
-  text-align: center;
-  padding: 0 24px;
-}
-
 /* Three ways to explore */
 .explore {
   width: 100%;
@@ -355,72 +328,8 @@
 
 .scienceArt {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.scienceArtDiagram {
-  position: relative;
-  flex-shrink: 0;
-  width: 220px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(48, 86, 245, 0.35), rgba(48, 86, 245, 0.05) 70%);
-}
-
-.scienceArtDiagram::before,
-.scienceArtDiagram::after {
-  content: "";
-  position: absolute;
-  background: var(--color-accent);
-  opacity: 0.4;
-}
-
-.scienceArtDiagram::before {
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-}
-
-.scienceArtDiagram::after {
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-}
-
-.scienceStats {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-family: var(--text-ui-caption-font-family);
-  font-size: var(--text-ui-caption-font-size);
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-}
-
-.scienceStats li {
-  position: relative;
-  padding-left: 18px;
-}
-
-.scienceStats li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-accent);
+  width: 100%;
+  aspect-ratio: 4 / 3;
 }
 
 /* Research teaser */

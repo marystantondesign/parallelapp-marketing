@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
@@ -27,8 +28,6 @@ const EXPLORE = [
   },
 ];
 
-const NETWORK_STATS = ["Relay arrays", "Quantum links", "Verifications", "Global coverage"];
-
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -51,9 +50,15 @@ export default function Home() {
             </CtaLink>
           </div>
         </div>
-        <div className={styles.heroArt} data-art-pending="Overlapping duotone portrait, two realities">
-          <div className={styles.heroArtRing} />
-          <p className={styles.heroArtLabel}>Portrait artwork — pending asset</p>
+        <div className={styles.heroArt}>
+          <Image
+            src="/images/home-hero.png"
+            alt="Duotone double portrait representing an alternate version of yourself"
+            fill
+            sizes="(max-width: 860px) 100vw, 50vw"
+            style={{ objectFit: "cover" }}
+            priority
+          />
         </div>
       </section>
 
@@ -143,12 +148,13 @@ export default function Home() {
           </Link>
         </div>
         <div className={styles.scienceArt}>
-          <div className={styles.scienceArtDiagram} aria-hidden="true" />
-          <ul className={styles.scienceStats}>
-            {NETWORK_STATS.map((stat) => (
-              <li key={stat}>{stat}</li>
-            ))}
-          </ul>
+          <Image
+            src="/images/home-science-sphere.png"
+            alt="Wireframe sphere diagram labeled relay array, quantum link, and verification"
+            fill
+            sizes="(max-width: 860px) 100vw, 50vw"
+            style={{ objectFit: "contain" }}
+          />
         </div>
       </section>
 

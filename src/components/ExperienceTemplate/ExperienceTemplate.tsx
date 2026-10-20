@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CtaLink from "@/components/CtaLink/CtaLink";
 import ExperienceSelector, { type ExperienceKey } from "@/components/ExperienceSelector/ExperienceSelector";
 import styles from "./ExperienceTemplate.module.css";
@@ -15,10 +16,11 @@ export type ExperienceData = {
   heroBody: string;
   cornerLabel?: string;
   artPending: string;
+  heroImage?: { src: string; alt: string };
   midTitle: string;
   midBody: string;
   bullets: string[];
-  closer: { title: string; body: string }[];
+  closer: { title: string; body: string; image?: { src: string; alt: string } }[];
 };
 
 export default function ExperienceTemplate({ data }: { data: ExperienceData }) {
@@ -37,8 +39,19 @@ export default function ExperienceTemplate({ data }: { data: ExperienceData }) {
             </CtaLink>
           </div>
         </div>
-        <div className={styles.heroArt} data-art-pending={data.artPending}>
-          <div className={styles.heroArtRing} />
+        <div className={styles.heroArt} data-art-pending={data.heroImage ? undefined : data.artPending}>
+          {data.heroImage ? (
+            <Image
+              src={data.heroImage.src}
+              alt={data.heroImage.alt}
+              fill
+              sizes="(max-width: 860px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          ) : (
+            <div className={styles.heroArtRing} />
+          )}
           {data.cornerLabel && <p className={styles.heroCornerLabel}>{data.cornerLabel}</p>}
         </div>
       </section>
@@ -77,7 +90,17 @@ export default function ExperienceTemplate({ data }: { data: ExperienceData }) {
         <div className={styles.closerGrid}>
           {data.closer.map((card) => (
             <div key={card.title} className={styles.closerCard}>
-              <div className={styles.closerArt} data-art-pending={`${data.key} — ${card.title}`} />
+              <div className={styles.closerArt} data-art-pending={card.image ? undefined : `${data.key} — ${card.title}`}>
+                {card.image && (
+                  <Image
+                    src={card.image.src}
+                    alt={card.image.alt}
+                    fill
+                    sizes="(max-width: 860px) 100vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                )}
+              </div>
               <p className={styles.closerTitle}>{card.title}</p>
               <p className={styles.closerBody}>{card.body}</p>
             </div>
