@@ -9,6 +9,7 @@ const DATA: ExperienceData = {
   heroBody:
     "Explore past life memories through guided regression sessions. Access knowledge, relationships, and experiences from your other lives.",
   artPending: "Monochrome figure in historic ruins, past-life landscape",
+  heroImage: { src: "/images/echoes-hero.png", alt: "Monochrome figure overlooking ruins and mountains, a past-life landscape" },
   midTitle: "Guided access to your past.",
   midBody:
     "Through a personalized process, Parallel helps you enter deep, receptive states, explore your memories, and document the lives you've lived before.",

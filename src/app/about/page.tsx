@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "@/components/Nav/Nav";
 import Footer from "@/components/Footer/Footer";
 import styles from "./page.module.css";
@@ -87,7 +88,15 @@ export default function About() {
             that human curiosity is far greater than we&rsquo;ve ever imagined.
           </p>
         </div>
-        <div className={styles.globalArt} data-art-pending="Earth from orbit, city lights at night" />
+        <div className={styles.globalArt}>
+          <Image
+            src="/images/about-global.png"
+            alt="Earth seen from orbit at night, city lights connected by a glowing network"
+            fill
+            sizes="(max-width: 860px) 100vw, 50vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
       </section>
 
       <section className={styles.team}>

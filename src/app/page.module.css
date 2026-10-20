@@ -58,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 2 / 1;
   width: 100%;
   border-radius: var(--radius-lg);
   background: linear-gradient(160deg, #eef0fb 0%, #dfe4fb 60%, #c9d2fb 100%);

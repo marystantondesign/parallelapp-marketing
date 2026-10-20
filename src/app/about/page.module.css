@@ -185,9 +185,11 @@
 }
 
 .globalArt {
-  aspect-ratio: 16 / 10;
+  position: relative;
+  aspect-ratio: 472 / 149;
   width: 100%;
   border-radius: var(--radius-lg);
+  overflow: hidden;
   background: radial-gradient(circle at 70% 30%, #2a3a7a 0%, #0a0a0a 70%);
 }
 

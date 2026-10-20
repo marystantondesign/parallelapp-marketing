@@ -8,9 +8,12 @@ const DATA: ExperienceData = {
   headline: "Meet the other you.",
   heroBody:
     "Connect with verified versions of yourself in neighboring realities. Have real conversations, share experiences, and gain new perspectives on your life.",
-  cornerLabel: "TWO REALITIES. ONE YOU.",
   artPending: "Duotone portrait, two mirrored profiles — one natural, one cobalt",
-  heroImage: { src: "/images/twins-hero.png", alt: "Duotone mirrored profile portrait, one natural and one cobalt" },
+  heroImage: {
+    src: "/images/twins-hero.png",
+    alt: "Duotone mirrored profile portrait captioned 'Two realities. One you.'",
+    fit: "contain",
+  },
   midTitle: "Real conversations. Different perspectives.",
   midBody:
     "Talk, text, or video chat with your alternate selves. Compare experiences, ask different questions, and see how small changes can lead to entirely different paths.",
@@ -22,7 +25,11 @@ const DATA: ExperienceData = {
   ],
   closer: [
     { title: "Identity verification", body: "How we match you with verified versions of yourself." },
-    { title: "Conversation experience", body: "A seamless, natural way to stay connected." },
+    {
+      title: "Conversation experience",
+      body: "A seamless, natural way to stay connected.",
+      image: { src: "/images/twins-closer-conversation.png", alt: "Glowing waveform pattern representing a voice conversation" },
+    },
     { title: "Multiple media options", body: "Text, audio, video, and shared media." },
   ],
 };

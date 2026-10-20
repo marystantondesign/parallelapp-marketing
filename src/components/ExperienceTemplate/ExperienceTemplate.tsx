@@ -16,7 +16,7 @@ export type ExperienceData = {
   heroBody: string;
   cornerLabel?: string;
   artPending: string;
-  heroImage?: { src: string; alt: string };
+  heroImage?: { src: string; alt: string; fit?: "cover" | "contain" };
   midTitle: string;
   midBody: string;
   bullets: string[];
@@ -46,7 +46,7 @@ export default function ExperienceTemplate({ data }: { data: ExperienceData }) {
               alt={data.heroImage.alt}
               fill
               sizes="(max-width: 860px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: data.heroImage.fit ?? "cover" }}
               priority
             />
           ) : (
